@@ -45,7 +45,7 @@ void nft::createcol(const name& author, uint16_t royalty, const string& name, co
 
 void nft::setroyalty(uint64_t collection_id, uint16_t royalty) {
     check(royalty >= 0, "royalty must be positive");
-    check(royalty < 10000, "royalty must be less than 10000");
+    check(royalty <= 1000, "royalty must be less than 1000");
 
     collections colstable(get_self(), get_self().value);
     auto col_it = colstable.require_find(collection_id, "unable to find collection");
